@@ -19,6 +19,7 @@ class Scene2 extends Phaser.Scene {
     //------------------------------------------------------//
     this.Background.setOrigin(0, 0);
 
+    this.explosion = this.add.sprite(config.width, 0, 'explosion');
     this.ship = this.add.sprite(config.width / 2 - 100, 0, 'ship');
     this.ship1 = this.add.sprite(config.width / 2, 0, 'ship1');
     this.ship2 = this.add.sprite(config.width / 2, 0, 'ship2');
@@ -26,12 +27,19 @@ class Scene2 extends Phaser.Scene {
     //-----------------------------------------------------//
     //------- Create SpreadSheet Anim ---------------------//
     //----------------------------------------------------//
+    this.anims.create({
+      key: 'expolode',
+      frames: this.anims.generateFrameNumbers('explosion'),
+      frameRate: 20,
+      repeat: 0, //---------- just once ----------------//
+      hideOnComplete: true //--- disapear when finish --//
+    });
 
     this.anims.create({
-      key: 'ship_anim',
+      key: 'ship_anim', //--------animation name----------//
       frames: this.anims.generateFrameNumbers('ship'),
       frameRate: 20,
-      repeat: -1
+      repeat: -1 //--------------repeation ---------------//
     });
 
     this.anims.create({
@@ -68,7 +76,6 @@ class Scene2 extends Phaser.Scene {
 
     this.input.on('gameobjectdown', this.destroyShip, this);
 
-    // this.ship.flipY = true;
     this.ship1.flipY = true;
     this.ship2.flipY = true;
 
@@ -86,6 +93,16 @@ class Scene2 extends Phaser.Scene {
       align: 'center',
       lineSpacing: 44
     });
+  }
+
+  //-------------------------------------------------------------------//
+  //---------- a function to handel the event of destroy --------------//
+  //-------------------------------------------------------------------//
+
+  destroyShip(pointer, gameObject) {
+    gameObject.setTexture('explosion');
+    gameObject.play('expolode');
+    this.explosion.setScale(1.2);
   }
   update() {
     //---------------------------------------------------------------//
