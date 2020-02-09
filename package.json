@@ -1,0 +1,20 @@
+{
+  "name": "phaser3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "phaser.js",
+  "dependencies": {
+    "grunt": "^1.0.4",
+    "grunt-contrib-jshint": "^2.1.0",
+    "phaser3-project-template": "^1.0.9",
+    "phaser": "^3.22.0"
+  },
+  "devDependencies": {
+    "grunt-contrib-connect": "^2.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
