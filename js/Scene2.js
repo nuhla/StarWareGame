@@ -19,6 +19,7 @@ class Scene2 extends Phaser.Scene {
     //------------------------------------------------------//
     this.Background.setOrigin(0, 0);
 
+    this.explosion = this.add.sprite(config.width, 0, 'power-up');
     this.explosion = this.add.sprite(config.width, 0, 'explosion');
     this.ship = this.add.sprite(config.width / 2 - 100, 0, 'ship');
     this.ship1 = this.add.sprite(config.width / 2, 0, 'ship1');
@@ -35,6 +36,7 @@ class Scene2 extends Phaser.Scene {
       hideOnComplete: true //--- disapear when finish --//
     });
 
+    //////////////////////////////////////////////////////////////////
     this.anims.create({
       key: 'ship_anim', //--------animation name----------//
       frames: this.anims.generateFrameNumbers('ship'),
@@ -42,18 +44,45 @@ class Scene2 extends Phaser.Scene {
       repeat: -1 //--------------repeation ---------------//
     });
 
+    ///////////////////////////////////////////////////////////////////
     this.anims.create({
       key: 'ship1_anim',
       frames: this.anims.generateFrameNumbers('ship1'),
       frameRate: 20,
       repeat: -1
     });
+
+    ///////////////////////////////////////////////////////////////////
     this.anims.create({
       key: 'ship2_anim',
       frames: this.anims.generateFrameNumbers('ship2'),
       frameRate: 20,
       repeat: -1
     });
+
+    ////////////////////////////////////////////////////////////////////
+    this.anims.create({
+      key: 'red',
+      frames: this.anims.generateFrameNumbers('power-up', {
+        start: 0,
+        end: 1
+      })
+    });
+
+    ////////////////////////////////////////////////////////////////////
+
+    this.anims.create({
+      key: 'gray',
+      frames: this.anims.generateFrameNumbers('power-up', {
+        start: 2,
+        end: 3
+      })
+    });
+
+    //------------------------------------------------------------------//
+    //---------------------- using physics------------------------------//
+    //------------------------------------------------------------------//
+    this.powerUps = this.physics.add.group();
 
     // this.ship1 = this.add.image(config.width / 2, config.height / 2, 'ship1');
 
