@@ -7,8 +7,8 @@ class Scene1 extends Phaser.Scene {
     this.load.image('Background', '../imges/2ef.gif');
 
     this.load.spritesheet('power-up', '../imges/power-up.png', {
-      frameWidth: 40,
-      frameHeight: 40
+      frameWidth: 30,
+      frameHeight: 30
     });
 
     this.load.spritesheet('explosion', '../imges/explosion.png', {

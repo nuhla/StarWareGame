@@ -91,7 +91,7 @@ class Scene2 extends Phaser.Scene {
 
     var maxObjects = 4;
     for (var i = 0; i <= maxObjects; i++) {
-      var powerUp = this.physics.add.sprite(40, 40, 'power-up');
+      var powerUp = this.physics.add.sprite(30, 30, 'power-up');
       this.powerUps.add(powerUp);
       powerUp.setRandomPosition(
         0,
@@ -105,6 +105,10 @@ class Scene2 extends Phaser.Scene {
       } else {
         powerUp.play('gray');
       }
+
+      powerUp.setVelocity(Math.random() * 100, Math.random() * 100);
+      powerUp.setCollideWorldBounds(true);
+      powerUp.setBounce(1);
     }
 
     // this.ship1 = this.add.image(config.width / 2, config.height / 2, 'ship1');
