@@ -67,7 +67,9 @@ class Scene2 extends Phaser.Scene {
       frames: this.anims.generateFrameNumbers('power-up', {
         start: 0,
         end: 1
-      })
+      }),
+      frameRate: 8,
+      repeat: -1
     });
 
     ////////////////////////////////////////////////////////////////////
@@ -77,7 +79,9 @@ class Scene2 extends Phaser.Scene {
       frames: this.anims.generateFrameNumbers('power-up', {
         start: 2,
         end: 3
-      })
+      }),
+      frameRate: 8,
+      repeat: -1
     });
 
     //------------------------------------------------------------------//
@@ -95,6 +99,12 @@ class Scene2 extends Phaser.Scene {
         this.game.config.width,
         this.game.config.height
       );
+
+      if (Math.random() > 0.5) {
+        powerUp.play('red');
+      } else {
+        powerUp.play('gray');
+      }
     }
 
     // this.ship1 = this.add.image(config.width / 2, config.height / 2, 'ship1');
