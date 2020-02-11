@@ -19,6 +19,7 @@ class Scene2 extends Phaser.Scene {
     //------------------------------------------------------//
     this.Background.setOrigin(0, 0);
 
+    //// var nane ///sprit to scen //// x /////// y // sprit name
     this.explosion = this.add.sprite(config.width, 0, 'power-up');
     this.explosion = this.add.sprite(config.width, 0, 'explosion');
     this.ship = this.add.sprite(config.width / 2 - 100, 0, 'ship');
@@ -83,6 +84,18 @@ class Scene2 extends Phaser.Scene {
     //---------------------- using physics------------------------------//
     //------------------------------------------------------------------//
     this.powerUps = this.physics.add.group();
+
+    var maxObjects = 4;
+    for (var i = 0; i <= maxObjects; i++) {
+      var powerUp = this.physics.add.sprite(40, 40, 'power-up');
+      this.powerUps.add(powerUp);
+      powerUp.setRandomPosition(
+        0,
+        0,
+        this.game.config.width,
+        this.game.config.height
+      );
+    }
 
     // this.ship1 = this.add.image(config.width / 2, config.height / 2, 'ship1');
 

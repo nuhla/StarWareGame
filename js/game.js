@@ -5,9 +5,9 @@ var config = {
   scene: [Scene1, Scene2],
   pixelArt: true,
   physics: {
-    defualt: 'arcade',
+    default: 'arcade',
     arcade: {
-      debuge: false
+      debug: false
     }
   }
 };
