@@ -19,70 +19,18 @@ class Scene2 extends Phaser.Scene {
     //------------------------------------------------------//
     this.Background.setOrigin(0, 0);
 
-    //// var nane ///sprit to scen //// x /////// y // sprit name
+    this.player = this.physics.add.sprite(
+      config.width / 2 - 8,
+      config.height - 100,
+      'player'
+    );
+    this.cursorKey = this.input.keyboard.createCursorKeys();
+    // var nane ///sprit to scen //// x /////// y // sprit name
     this.explosion = this.add.sprite(config.width, 0, 'power-up');
     this.explosion = this.add.sprite(config.width, 0, 'explosion');
     this.ship = this.add.sprite(config.width / 2 - 100, 0, 'ship');
     this.ship1 = this.add.sprite(config.width / 2, 0, 'ship1');
     this.ship2 = this.add.sprite(config.width / 2, 0, 'ship2');
-
-    //-----------------------------------------------------//
-    //------- Create SpreadSheet Anim ---------------------//
-    //----------------------------------------------------//
-    this.anims.create({
-      key: 'expolode',
-      frames: this.anims.generateFrameNumbers('explosion'),
-      frameRate: 20,
-      repeat: 0, //---------- just once ----------------//
-      hideOnComplete: true //--- disapear when finish --//
-    });
-
-    //////////////////////////////////////////////////////////////////
-    this.anims.create({
-      key: 'ship_anim', //--------animation name----------//
-      frames: this.anims.generateFrameNumbers('ship'),
-      frameRate: 20,
-      repeat: -1 //--------------repeation ---------------//
-    });
-
-    ///////////////////////////////////////////////////////////////////
-    this.anims.create({
-      key: 'ship1_anim',
-      frames: this.anims.generateFrameNumbers('ship1'),
-      frameRate: 20,
-      repeat: -1
-    });
-
-    ///////////////////////////////////////////////////////////////////
-    this.anims.create({
-      key: 'ship2_anim',
-      frames: this.anims.generateFrameNumbers('ship2'),
-      frameRate: 20,
-      repeat: -1
-    });
-
-    ////////////////////////////////////////////////////////////////////
-    this.anims.create({
-      key: 'red',
-      frames: this.anims.generateFrameNumbers('power-up', {
-        start: 0,
-        end: 1
-      }),
-      frameRate: 8,
-      repeat: -1
-    });
-
-    ////////////////////////////////////////////////////////////////////
-
-    this.anims.create({
-      key: 'gray',
-      frames: this.anims.generateFrameNumbers('power-up', {
-        start: 2,
-        end: 3
-      }),
-      frameRate: 8,
-      repeat: -1
-    });
 
     //------------------------------------------------------------------//
     //---------------------- using physics------------------------------//
@@ -119,6 +67,7 @@ class Scene2 extends Phaser.Scene {
     this.ship.play('ship_anim');
     this.ship1.play('ship1_anim');
     this.ship2.play('ship2_anim');
+    this.player.play('thrust');
     //---------------------------------------------------------------//
     //----------make sprites interactive with the mouse -------------//
     //---------------------------------------------------------------//
