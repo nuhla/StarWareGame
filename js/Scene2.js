@@ -150,6 +150,9 @@ class Scene2 extends Phaser.Scene {
 
     //----------- detect the space key of the keyboard -------------//
     if (Phaser.Input.Keyboard.JustDown(this.spacer)) {
+      //------------------------------------------------------------//
+      // ----- this function controles the shooting act ------------//
+      //------------------------------------------------------------//
       this.shootBeam();
     }
   }
@@ -175,6 +178,9 @@ class Scene2 extends Phaser.Scene {
   movwShip(ship, speed) {
     if (ship.y > window.innerHeight) {
       ship.y = 0;
+      //--------------------------------------------------------------//
+      //----- between gives us a random number between tow ranges ----//
+      //--------------------------------------------------------------//
       ship.x = Phaser.Math.Between(
         this.ship.width,
         config.width - this.ship.width
@@ -184,6 +190,9 @@ class Scene2 extends Phaser.Scene {
   }
 
   shootBeam() {
+    //------------------------------------------------//
+    //---- creat a new Object from the Beam class ----//
+    //------------------------------------------------//
     var beam = new Beam(this);
   }
 }
