@@ -15,5 +15,5 @@ var config = {
 var game = new this.Phaser.Game(config);
 
 var gameSettings = {
-  playerSpeed: 200
+  playerSpeed: 100
 };

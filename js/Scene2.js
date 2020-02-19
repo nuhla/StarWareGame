@@ -24,9 +24,19 @@ class Scene2 extends Phaser.Scene {
       config.height - 100,
       'player'
     );
+    //--------------------- creat a keys handling object ------------------//
+
     this.cursorKey = this.input.keyboard.createCursorKeys();
+
+    //-------------------- create a space handling object -----------------//
+    this.spacer = this.input.keyboard.addKey(
+      Phaser.Input.Keyboard.KeyCodes.SPACE
+    );
+    //-------------- add a collidion to the palyer for the word -----------//
     this.player.setCollideWorldBounds(true);
     this.player.setBounce(1);
+
+    //---------------------------------------------------------------------//
     // var nane ///sprit to scen //// x /////// y // sprit name
     this.explosion = this.add.sprite(config.width, 0, 'power-up');
     this.explosion = this.add.sprite(config.width, 0, 'explosion');
@@ -120,7 +130,12 @@ class Scene2 extends Phaser.Scene {
     if (this.cursorKey.left.isDown) {
       this.player.setVelocityX(-gameSettings.playerSpeed);
     }
-
+    if (this.cursorKey.up.isDown) {
+      this.player.setVelocityY(-gameSettings.playerSpeed);
+    }
+    if (this.cursorKey.down.isDown) {
+      this.player.setVelocityY(gameSettings.playerSpeed);
+    }
     if (this.cursorKey.right.isDown) {
       this.player.setVelocityX(gameSettings.playerSpeed);
     }

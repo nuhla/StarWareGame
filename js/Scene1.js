@@ -110,7 +110,7 @@ class Scene1 extends Phaser.Scene {
     this.anims.create({
       key: 'thrust',
       frames: this.anims.generateFrameNumbers('player'),
-      frameRate: 20,
+      frameRate: 40,
       repeat: -1
     });
   }
