@@ -118,9 +118,13 @@ class Scene2 extends Phaser.Scene {
   //-------------------------------------------------------------------//
 
   destroyShip(pointer, gameObject) {
+    //-----------------------------------------------------------------//
+    //------- in this function we switch the sheet of the ship --------//
+    //------ and insted we play the explotion anim in the same pos ----//
+    //-----------------------------------------------------------------//
     gameObject.setTexture('explosion');
     gameObject.play('expolode');
-    this.explosion.setScale(1.2);
+    this.explosion.setScale(1.5);
   }
 
   //----------------------------------------------------------------//
