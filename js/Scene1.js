@@ -75,6 +75,13 @@ class Scene1 extends Phaser.Scene {
       hideOnComplete: true //--- disapear when finish --//
     });
 
+    this.anims.create({
+      key: 'fire_anim',
+      frameRate: 20,
+      frames: this.anims.generateFrameNumbers('beam'),
+      repeat: -1
+    });
+
     //-------------------------------------------------------------///
     this.anims.create({
       key: 'ship_anim', //--------------animation name--------------//

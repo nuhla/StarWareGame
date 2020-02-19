@@ -38,7 +38,7 @@ class Scene2 extends Phaser.Scene {
 
     //---------------------------------------------------------------------//
     // var nane ///sprit to scen //// x /////// y // sprit name
-    this.explosion = this.add.sprite(config.width, 0, 'power-up');
+    // this.powerup = this.add.sprite(config.width, 0, 'power-up');
     this.explosion = this.add.sprite(config.width, 0, 'explosion');
     this.ship = this.add.sprite(config.width / 2 - 100, 0, 'ship');
     this.ship1 = this.add.sprite(config.width / 2, 0, 'ship1');
@@ -99,6 +99,7 @@ class Scene2 extends Phaser.Scene {
     this.ship.setScale(0.65);
     this.ship2.setScale(0.65);
     this.ship1.setScale(0.65);
+    this.player.setScale(0.85);
 
     //--------------------------------------------------------------//
     //--------- Create a Text Name of the Scene --------------------//
@@ -127,23 +128,32 @@ class Scene2 extends Phaser.Scene {
   //----------------------------------------------------------------//
 
   movePlayerManager() {
+    //----------- detect the left arrow of the keyboard ------------//
     if (this.cursorKey.left.isDown) {
       this.player.setVelocityX(-gameSettings.playerSpeed);
     }
+
+    //------------- detect the up arrow of the keyboard ------------//
     if (this.cursorKey.up.isDown) {
       this.player.setVelocityY(-gameSettings.playerSpeed);
     }
+
+    //----------- detect the down arrow of the keyboard ------------//
     if (this.cursorKey.down.isDown) {
       this.player.setVelocityY(gameSettings.playerSpeed);
     }
+
+    //----------- detect the Right arrow of the keyboard ----------//
     if (this.cursorKey.right.isDown) {
       this.player.setVelocityX(gameSettings.playerSpeed);
     }
 
+    //----------- detect the space key of the keyboard -------------//
     if (Phaser.Input.Keyboard.JustDown(this.spacer)) {
-      console.log('fire');
+      this.shootBeam();
     }
   }
+
   update() {
     //--------------------------------------------------------------//
     //---------- Update Player Movment due to keyboard -------------//
@@ -171,5 +181,9 @@ class Scene2 extends Phaser.Scene {
       );
     }
     ship.y += speed;
+  }
+
+  shootBeam() {
+    var beam = new Beam(this);
   }
 }
