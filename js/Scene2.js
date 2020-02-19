@@ -139,6 +139,10 @@ class Scene2 extends Phaser.Scene {
     if (this.cursorKey.right.isDown) {
       this.player.setVelocityX(gameSettings.playerSpeed);
     }
+
+    if (Phaser.Input.Keyboard.JustDown(this.spacer)) {
+      console.log('fire');
+    }
   }
   update() {
     //--------------------------------------------------------------//
