@@ -7,6 +7,6 @@ A Game using Phaser 3
   
  #why Phaser And Arcad 
   - arcade physics make it easier to develop the feeling of reality of landing, bouncing, flaying, moving 
-  - for phaser, it makes it easier to sperate and create sprit aims and animate it with sheets and png's 
+  - for phaser, it makes it easier to sperate and create sprits and animate it with sheets and png's 
   
   
