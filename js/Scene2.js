@@ -4,9 +4,27 @@ class Scene2 extends Phaser.Scene {
   }
 
   create() {
+    //--------- A Score Vriable ----------------------------//
+    this.score = 0;
+
+    //-------------------------------------------------------//
+    //------- creat a back ground to the score lable --------//
+    //-------------------------------------------------------//
+    var graphics = this.add.graphics();
+    graphics.fillStyle(0x000000, 1);
+    graphics.beginPath();
+    graphics.moveTo(0, 0);
+    graphics.lineTo(config.width, 0);
+    graphics.lineTo(config.width, 50);
+    graphics.lineTo(0, 50);
+    graphics.lineTo(0, 0);
+    graphics.closePath();
+    graphics.fillPath();
+
     //------------------------------------------------------//
     //-------- putting the backgroung in the secne----------//
     //------------------------------------------------------//
+
     this.Background = this.add.tileSprite(
       0,
       0,
@@ -24,6 +42,9 @@ class Scene2 extends Phaser.Scene {
       config.height - 100,
       'player'
     );
+
+    //-------------------- Creat Out Bitmap Text for score ----------------//
+    this.scoreLable = this.add.bitmapText(20, 20, 'pixelFont', 'SCORE :', 40);
     //--------------------- creat a keys handling object ------------------//
 
     this.cursorKey = this.input.keyboard.createCursorKeys();
@@ -158,16 +179,6 @@ class Scene2 extends Phaser.Scene {
       null,
       this
     );
-    //--------------------------------------------------------------//
-    //--------- Create a Text Name of the Scene --------------------//
-    //--------------------------------------------------------------//
-    this.add.text(20, 20, 'Playing Game', {
-      fontSize: '24px',
-      fontFamily: 'Arial',
-      color: '#ffffff',
-      align: 'center',
-      lineSpacing: 44
-    });
   }
 
   //----------------------------------------------------------------------//
@@ -204,6 +215,7 @@ class Scene2 extends Phaser.Scene {
   crashEnimy(existing, enemy) {
     this.resetShipPos(enemy);
     existing.destroy();
+    this.score++;
   }
 
   resetShipPos(enmy) {
@@ -241,6 +253,7 @@ class Scene2 extends Phaser.Scene {
   }
 
   update() {
+    this.scoreLable.text = 'Score :' + this.score;
     //--------------------------------------------------------------//
     //---------- Update Player Movment due to keyboard -------------//
     //--------------------------------------------------------------//
