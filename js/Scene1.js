@@ -13,8 +13,8 @@ class Scene1 extends Phaser.Scene {
 
     //---------- load the player fire-----------------------//
     this.load.spritesheet('beam', '../imges/beam.png', {
-      frameWidth: 50,
-      frameHeight: 50
+      frameWidth: 30,
+      frameHeight: 30
     });
 
     //--------------- load the player -----------------------//
