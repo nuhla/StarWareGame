@@ -11,5 +11,15 @@ class Beam extends Phaser.GameObjects.Sprite {
     // --------- add the game object to the scene which is scen 2 ---------//
     //---------------------------------------------------------------------//
     scene.add.existing(this);
+
+    this.play('fire_anim');
+    scene.physics.world.enableBody(this);
+    this.body.velocity.y = -300;
+  }
+
+  update() {
+    if (this.y < 50) {
+      this.destroy();
+    }
   }
 }

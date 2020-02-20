@@ -32,13 +32,14 @@ class Scene2 extends Phaser.Scene {
     this.spacer = this.input.keyboard.addKey(
       Phaser.Input.Keyboard.KeyCodes.SPACE
     );
+
+    this.existing = this.add.group();
     //-------------- add a collidion to the palyer for the word -----------//
     this.player.setCollideWorldBounds(true);
-    this.player.setBounce(1);
+    // this.player.setBounce(1);
 
     //---------------------------------------------------------------------//
     // var nane ///sprit to scen //// x /////// y // sprit name
-    // this.powerup = this.add.sprite(config.width, 0, 'power-up');
     this.explosion = this.add.sprite(config.width, 0, 'explosion');
     this.ship = this.add.sprite(config.width / 2 - 100, 0, 'ship');
     this.ship1 = this.add.sprite(config.width / 2, 0, 'ship1');
@@ -70,8 +71,6 @@ class Scene2 extends Phaser.Scene {
       powerUp.setCollideWorldBounds(true);
       powerUp.setBounce(1);
     }
-
-    // this.ship1 = this.add.image(config.width / 2, config.height / 2, 'ship1');
 
     //--------------------------------------------------------------//
     //--------- flipping and scaliing the sprites ------------------//
@@ -158,6 +157,12 @@ class Scene2 extends Phaser.Scene {
       // ----- this function controles the shooting act ------------//
       //------------------------------------------------------------//
       this.shootBeam();
+    }
+
+    for (var i = 0; i < this.existing.getChildren().length; i++) {
+      var beam = this.existing.getChildren()[i];
+      beam.update();
+      console.log(beam);
     }
   }
 
