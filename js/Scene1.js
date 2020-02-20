@@ -8,6 +8,9 @@ class Scene1 extends Phaser.Scene {
     // ---------------------load al the resourses befor start the game -----------//
     //----------------------------------------------------------------------------//
 
+    //---------------------- load the font map -----------------------------------//
+    this.load.bitmapFont('pixelFont', '../font/font.png', '../font/font.xml');
+
     //---------- load the background of the game stage ---------------------------//
     this.load.image('Background', '../imges/2ef.gif');
 
